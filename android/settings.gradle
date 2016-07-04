@@ -1,3 +1,8 @@
 rootProject.name = 'Sprinkle'
 
 include ':app'
+include ':reactnativemapboxgl'
+include ':react-native-vector-icons'
+
+project(':reactnativemapboxgl').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-mapbox-gl/android')
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
