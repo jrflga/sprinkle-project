@@ -21,7 +21,7 @@ class Sprinkle extends Component {
               <View style={{height: 200, backgroundColor: '#347A2A'}}>
               </View>
               <View style={{height: 100, width: 100, backgroundColor: '#eee', borderRadius: 50, bottom: 50, left: 100, alignItems: 'center', justifyContent: 'center'}}>
-                  <Icon name="envira" size={50} color="#347A2Ag" />
+                  <Icon name="envira" size={50} color="#347A2A" />
               </View>
           </View>
         );
