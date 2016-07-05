@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Mapbox from "react-native-mapbox-gl";
 import ToolbarAndroid from "ToolbarAndroid";
 import DrawerLayoutAndroid from "DrawerLayoutAndroid";
-var mapRef = "mapRef";
 import {
     AppRegistry,
     StyleSheet,
     StatusBar,
     Text,
     ListView,
+    Dimensions,
     View
 } from "react-native";
 
+var mapRef = "mapRef";
+var {height, width} = Dimensions.get('window');
 
 class Sprinkle extends Component {
 
@@ -21,16 +24,16 @@ class Sprinkle extends Component {
             <View style={styles.navigationbottom}>
                 <View style={styles.navigationtop}></View>
                 <View style={styles.navigationback}>
-                    <Icon name="envira" size={50} color="#347a2a" />
+                    <FontAwesome name="envira" size={50} color="#347a2a" />
                 </View>
                 <View style={styles.drawerMenu}>
-                    <Icon.Button name="exclamation-circle" size={30} backgroundColor="#b3c87a" color="#202e24" onPress={this.null}>
+                    <Icon.Button style={{left: 8}} name="info" size={24} backgroundColor="#b3c87a" color="#383838" onPress={this.null}>
                     <Text style={styles.drawerButton}> About </Text>
                     </Icon.Button>
-                    <Icon.Button name="user" size={30} backgroundColor="#b3c87a" color="#202e24" onPress={this.null}>
+                    <Icon.Button style={{left: 8}} name="account-circle" size={24} backgroundColor="#b3c87a" color="#383838" onPress={this.null}>
                         <Text style={styles.drawerButton}> Profile </Text>
                     </Icon.Button>
-                    <Icon.Button name="cog" size={30} backgroundColor="#b3c87a" color="#202e24" onPress={this.null}>
+                    <Icon.Button style={{left: 8}} name="settings" size={24} backgroundColor="#b3c87a" color="#383838" onPress={this.null}>
                         <Text style={styles.drawerButton}> Settings </Text>
                     </Icon.Button>
                 </View>
@@ -47,8 +50,8 @@ class Sprinkle extends Component {
                     <Icon.ToolbarAndroid
                         style={styles.toolbar}
                         title="Sprinkle"
-                        titleColor="#202e24"
-                        actions={[{title: "Account", iconName: "user", iconColor: "#202e24", iconSize: 24, show: "always"}]}
+                        titleColor="#fdfadf"
+                        actions={[{title: "Account", iconName: "account-circle", iconColor: "#fdfadf", iconSize: 32, show: "always"}]}
                     />
                     <Mapbox
                         accessToken={"pk.eyJ1IjoianJmbGdhIiwiYSI6ImNpcTg2bDNqejAwc3Vmc20xeWltOThvaTYifQ.yWNGTLAa4yCO2rppxdZwzA"}
@@ -62,9 +65,12 @@ class Sprinkle extends Component {
                         styleURL={"mapbox://styles/jrflga/ciq8donp7001jbkmbps2i7lmg"}
                         showsUserLocation={true}
                         zoomEnabled={true}
+                        rotateEnabled={true}
                         zoomLevel={13}
                         compassIsHidden={false}
                         attributionButtonIsHidden={true}
+                        logoIsHidden={true}
+                        style={styles.map}
                     />
                 </DrawerLayoutAndroid>
             </View>
@@ -79,7 +85,7 @@ const styles = StyleSheet.create({
     toolbar: {
         height: 56,
         backgroundColor: "#b3c87a",
-        elevation: 2,
+        elevation: 5,
     },
     navigationtop: {
         height: 200,
@@ -92,20 +98,24 @@ const styles = StyleSheet.create({
     navigationback: {
         height: 100,
         width: 100,
-        backgroundColor: "#eeeeee",
+        backgroundColor: "#fdfadf",
         borderRadius: 50,
         bottom: 50,
         left: 100,
         alignItems: "center",
         justifyContent: "center",
     },
+    map: {
+        flex: 1
+    },
     drawerMenu: {
         bottom: 35
     },
     drawerButton: {
-        fontSize: 20,
-        left: 5,
-        color: "#0a0a0a"
+        fontSize: 15,
+        left: 25,
+        color: "#383838",
+        fontWeight: "bold"
     },
 });
 
