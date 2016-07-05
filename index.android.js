@@ -23,6 +23,17 @@ class Sprinkle extends Component {
                 <View style={styles.navigationback}>
                     <Icon name="envira" size={50} color="#347a2a" />
                 </View>
+                <View style={styles.drawerMenu}>
+                    <Icon.Button name="exclamation-circle" size={30} backgroundColor="#b3c87a" color="#202e24" onPress={this.null}>
+                    <Text style={styles.drawerButton}> About </Text>
+                    </Icon.Button>
+                    <Icon.Button name="user" size={30} backgroundColor="#b3c87a" color="#202e24" onPress={this.null}>
+                        <Text style={styles.drawerButton}> Profile </Text>
+                    </Icon.Button>
+                    <Icon.Button name="cog" size={30} backgroundColor="#b3c87a" color="#202e24" onPress={this.null}>
+                        <Text style={styles.drawerButton}> Settings </Text>
+                    </Icon.Button>
+                </View>
             </View>
         );
 
@@ -87,7 +98,15 @@ const styles = StyleSheet.create({
         left: 100,
         alignItems: "center",
         justifyContent: "center",
-    }
+    },
+    drawerMenu: {
+        bottom: 35
+    },
+    drawerButton: {
+        fontSize: 20,
+        left: 5,
+        color: "#0a0a0a"
+    },
 });
 
 AppRegistry.registerComponent("Sprinkle", () => Sprinkle);
