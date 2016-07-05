@@ -4,6 +4,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Mapbox from "react-native-mapbox-gl";
 import ToolbarAndroid from "ToolbarAndroid";
 import DrawerLayoutAndroid from "DrawerLayoutAndroid";
+var mapRef = "mapRef";
 import {
     AppRegistry,
     StyleSheet,
@@ -15,7 +16,7 @@ import {
 } from "react-native";
 
 var mapRef = "mapRef";
-var {height, width} = Dimensions.get('window');
+var {height, width} = Dimensions.get("window");
 
 class Sprinkle extends Component {
 
@@ -50,27 +51,26 @@ class Sprinkle extends Component {
                     <Icon.ToolbarAndroid
                         style={styles.toolbar}
                         title="Sprinkle"
-                        titleColor="#fdfadf"
-                        actions={[{title: "Account", iconName: "account-circle", iconColor: "#fdfadf", iconSize: 32, show: "always"}]}
+                        titleColor="#fefbef"
+                        actions={[{title: "Account", iconName: "account-circle", iconColor: "#fefbef", iconSize: 32, show: "always"}]}
                     />
                     <Mapbox
                         accessToken={"pk.eyJ1IjoianJmbGdhIiwiYSI6ImNpcTg2bDNqejAwc3Vmc20xeWltOThvaTYifQ.yWNGTLAa4yCO2rppxdZwzA"}
-                        centerCoordinate={{latitude: -22.924, longitude: -43.245}}
+                        annotations={[{coordinates: [-22.927, -43.245], type: "point", title: "NAVE Rio", subtitle: "Núcleo Avançado de Educação"}]}
+                        attributionButtonIsHidden={true}
+                        centerCoordinate={{latitude: -22.927, longitude: -43.245}}
+                        compassIsHidden={false}
                         debugActive={false}
                         direction={0.5}
+                        logoIsHidden={true}
                         ref={mapRef}
-                        rotateEnabled={false}
+                        rotateEnabled={true}
                         scrollEnabled={true}
-                        style={styles.container}
+                        style={styles.map}
                         styleURL={"mapbox://styles/jrflga/ciq8donp7001jbkmbps2i7lmg"}
                         showsUserLocation={true}
                         zoomEnabled={true}
-                        rotateEnabled={true}
                         zoomLevel={13}
-                        compassIsHidden={false}
-                        attributionButtonIsHidden={true}
-                        logoIsHidden={true}
-                        style={styles.map}
                     />
                 </DrawerLayoutAndroid>
             </View>
@@ -85,15 +85,15 @@ const styles = StyleSheet.create({
     toolbar: {
         height: 56,
         backgroundColor: "#b3c87a",
-        elevation: 5,
+        elevation: 5
     },
     navigationtop: {
         height: 200,
-        backgroundColor: "#347a2a",
+        backgroundColor: "#347a2a"
     },
     navigationbottom: {
         flex: 1,
-        backgroundColor: "#b3c87a",
+        backgroundColor: "#b3c87a"
     },
     navigationback: {
         height: 100,
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
         bottom: 50,
         left: 100,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
     },
     map: {
         flex: 1
