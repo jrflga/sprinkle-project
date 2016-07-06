@@ -7,6 +7,7 @@ Sprinkle is a plant-based community app to learn about green world. The focus of
 - React Native (=> 0.28.0)
 - Mapbox GL (JS version)
 - Vector Icons
+- rnpm (Optional)
 
 ## Installation
 
