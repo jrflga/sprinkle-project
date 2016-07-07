@@ -28,13 +28,13 @@ class Sprinkle extends Component {
                     <FontAwesome name="envira" size={50} color="#347a2a" />
                 </View>
                 <View style={styles.drawerMenu}>
-                    <Icon.Button style={{left: 8}} name="info" size={24} backgroundColor="#b3c87a" color="#383838" onPress={this.null}>
+                    <Icon.Button style={{left: 8}} name="info" size={24} backgroundColor="#b3c87a" color="#fefbef" onPress={this.null}>
                     <Text style={styles.drawerButton}> About </Text>
                     </Icon.Button>
-                    <Icon.Button style={{left: 8}} name="account-circle" size={24} backgroundColor="#b3c87a" color="#383838" onPress={this.null}>
+                    <Icon.Button style={{left: 8}} name="account-circle" size={24} backgroundColor="#b3c87a" color="#fefbef" onPress={this.null}>
                         <Text style={styles.drawerButton}> Profile </Text>
                     </Icon.Button>
-                    <Icon.Button style={{left: 8}} name="settings" size={24} backgroundColor="#b3c87a" color="#383838" onPress={this.null}>
+                    <Icon.Button style={{left: 8}} name="settings" size={24} backgroundColor="#b3c87a" color="#fefbef" onPress={this.null}>
                         <Text style={styles.drawerButton}> Settings </Text>
                     </Icon.Button>
                 </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     drawerButton: {
         fontSize: 15,
         left: 25,
-        color: "#383838",
+        color: "#fefbef",
         fontWeight: "bold"
     },
 });
