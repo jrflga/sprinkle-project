@@ -4,24 +4,13 @@ Sprinkle is a plant-based community app to learn about green world. The focus of
 
 ## Dependencies
 
-- React Native (=> 0.28.0)
-- Mapbox GL (JS version)
-- Vector Icons
-- rnpm (Optional)
+- Android Studio 2.1.2
+- API 24
 
 ## Installation
 
-Firstly, you need to clone the repo and open in terminal. Then run these commands:
-
-```sh
-$ > npm install
-# If Android
-$ > react-native run-android
-# If iOS (only on iDevices)
-$ > react-native run-ios
-```
+Coming soon
 
 ## Screenshots
 
-![sh1](http://i.imgur.com/mVEbTZm.jpg)
-![sh2](http://i.imgur.com/kTaFOIZ.jpg)
+Coming soon
