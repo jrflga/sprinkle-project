@@ -7,4 +7,6 @@
     <string name="profile_name">Roberto Alves</string>
     <string name="profile_desc">Profile image</string>
     <string name="profile_email">roberto.alves@gmail.com</string>
+    <string name="logoDesc">Logo</string>
+    <string name="btnSubmit">Sign in</string>
 </resources>

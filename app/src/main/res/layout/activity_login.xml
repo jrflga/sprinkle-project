@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="match_parent">
 
-    <SurfaceView
-        android:id="@+id/surface"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <com.android.sprinkleproject.utils.IntroVideoSurfaceView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="200dp"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logoDesc"
+            android:layout_marginTop="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:ems="10"
+            android:id="@+id/emailLabel"
+            android:theme="@style/Theme.AppCompat"
+            android:layout_marginTop="49dp"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:ems="10"
+            android:id="@+id/passwordLabel"
+            android:theme="@style/Theme.AppCompat"
+            android:layout_below="@+id/emailLabel"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnSubmit"
+            android:id="@+id/submit"
+            android:theme="@style/Theme.AppCompat"
+            android:layout_below="@+id/passwordLabel"
+            android:layout_alignEnd="@id/passwordLabel"
+            android:layout_alignStart="@id/passwordLabel"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="20dp" />
+    </RelativeLayout>
+
+</LinearLayout>
