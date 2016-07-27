@@ -26,15 +26,18 @@ public class IntroVideoSurfaceView extends SurfaceView implements SurfaceHolder.
 
     public IntroVideoSurfaceView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        if (!isInEditMode())
+            init();
     }
     public IntroVideoSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        if (!isInEditMode())
+            init();
     }
     public IntroVideoSurfaceView(Context context) {
         super(context);
-        init();
+        if (!isInEditMode())
+            init();
     }
 
     private void init (){

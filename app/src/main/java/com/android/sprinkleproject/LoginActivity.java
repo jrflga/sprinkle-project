@@ -24,6 +24,7 @@ public class LoginActivity extends Activity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
             }
         });
     }
