@@ -8,7 +8,6 @@
     <string name="profile_desc">Profile image</string>
     <string name="profile_email">roberto.alves@gmail.com</string>
     <string name="logoDesc">Logo</string>
-    <string name="btnSubmit">Sign in</string>
-    <string name="oneTapSign">One-tap sign in</string>
+    <string name="btnSubmit">Logar</string>
     <string name="email">Email</string>
 </resources>

@@ -8,11 +8,11 @@
     tools:showIn="@layout/app_bar_main"
     tools:context=".MainActivity">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/fragment_container"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@android:color/white" >
-    </FrameLayout>
+    <com.android.sprinkleproject.utils.ZigZagLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/zzl">
+
+    </com.android.sprinkleproject.utils.ZigZagLayout>
+
 </RelativeLayout>

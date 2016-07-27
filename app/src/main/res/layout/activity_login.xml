@@ -4,22 +4,40 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-        <com.android.sprinkleproject.utils.IntroVideoSurfaceView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"/>
+    <com.android.sprinkleproject.utils.IntroVideoSurfaceView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/background_darkenfy"/>
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/imageView"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/logoDesc"
-            android:layout_marginTop="150dp"
-            android:layout_marginBottom="1dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logoContent">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:id="@+id/logo"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logo"
+                android:contentDescription="@string/logoDesc"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/emailLabel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/appName"
+                android:text="@string/app_name"
+                android:textColor="@android:color/white"
+                android:layout_alignBottom="@+id/imageView"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="32sp" />
+    </LinearLayout>
 
         <EditText
             android:layout_width="wrap_content"
@@ -35,14 +53,14 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:layout_marginTop="50dp"
-            android:layout_below="@+id/imageView"
+            android:layout_below="@+id/logoContent"
             android:layout_centerHorizontal="true" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password"
+            android:hint="Senha"
             android:textColorHint="@color/textcolor_edittext"
             android:ems="20"
             android:id="@+id/passwordLabel"
@@ -83,6 +101,7 @@
                 android:paddingLeft="10dp"
                 android:theme="@style/Theme.AppCompat"
                 android:background="@color/google_red_color"/>
+
             <Button android:id="@+id/btnFacebook"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"

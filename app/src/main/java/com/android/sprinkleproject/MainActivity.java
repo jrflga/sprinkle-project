@@ -1,5 +1,6 @@
 package com.android.sprinkleproject;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+
+import com.android.sprinkleproject.utils.ZigZagLayout;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,6 +27,26 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ZigZagLayout zigZagLayout = (ZigZagLayout) findViewById(R.id.zzl);
+        zigZagLayout.setLineColor(Color.BLACK);
+        zigZagLayout.setLineStrokeWidth(5);
+        zigZagLayout.setLineVisibility(1);
+        Button btn = new Button(this);
+        btn.setText("Test Button");
+        btn.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+        zigZagLayout.addView(btn);
+
+        Button btn2 = new Button(this);
+        btn2.setText("Test Button");
+        btn2.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+        zigZagLayout.addView(btn2);
+
+        Button btn3 = new Button(this);
+        btn3.setText("Test Button");
+        btn3.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+        zigZagLayout.addView(btn3);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
