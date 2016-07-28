@@ -20,6 +20,7 @@ public class ZigZagLayout extends RelativeLayout {
 
     public ZigZagLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.setWillNotDraw(false);
 
         mPaintConnectorLine = new Paint();
         mPaintConnectorLine.setColor(Color.BLACK);

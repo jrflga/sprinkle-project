@@ -29,31 +29,23 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         ZigZagLayout zigZagLayout = (ZigZagLayout) findViewById(R.id.zzl);
-        zigZagLayout.setLineColor(Color.BLACK);
-        zigZagLayout.setLineStrokeWidth(5);
-        zigZagLayout.setLineVisibility(1);
-        Button btn = new Button(this);
-        btn.setText("Test Button");
-        btn.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-        zigZagLayout.addView(btn);
+        zigZagLayout.setLineStrokeWidth(2);
+        zigZagLayout.setLineColor(R.color.colorPrimary);
 
-        Button btn2 = new Button(this);
-        btn2.setText("Test Button");
-        btn2.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-        zigZagLayout.addView(btn2);
-
-        Button btn3 = new Button(this);
-        btn3.setText("Test Button");
-        btn3.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-        zigZagLayout.addView(btn3);
+        createButton("TEST", zigZagLayout);
+        createButton("TESTE2", zigZagLayout);
+        createButton("TEST", zigZagLayout);
+        createButton("TESTE2", zigZagLayout);
+        createButton("TEST", zigZagLayout);
+        createButton("TESTE2", zigZagLayout);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
@@ -110,5 +102,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void createButton(String text, ZigZagLayout zig) {
+        Button btn = new Button(this);
+        btn.setText(text);
+        btn.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+        zig.addView(btn);
     }
 }

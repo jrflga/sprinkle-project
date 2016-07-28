@@ -10,4 +10,7 @@
     <string name="logoDesc">Logo</string>
     <string name="btnSubmit">Logar</string>
     <string name="email">Email</string>
+    <string name="edittext_password">Senha</string>
+    <string name="btnGoogle">Google</string>
+    <string name="btnFacebook">Facebook</string>
 </resources>
