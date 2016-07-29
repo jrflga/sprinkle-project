@@ -25,6 +25,7 @@ public class ZigZagLayout extends RelativeLayout {
         mPaintConnectorLine = new Paint();
         mPaintConnectorLine.setColor(Color.BLACK);
         mPaintConnectorLine.setStrokeWidth(10);
+        mPaintConnectorLine.setFlags(Paint.ANTI_ALIAS_FLAG);
 
         setGravity(Gravity.CENTER_HORIZONTAL);
     }

@@ -4,10 +4,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,8 +21,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.android.sprinkleproject.utils.ZigZagLayout;
 
@@ -35,15 +39,23 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         ZigZagLayout zigZagLayout = (ZigZagLayout) findViewById(R.id.zzl);
-        zigZagLayout.setLineStrokeWidth(2);
-        zigZagLayout.setLineColor(R.color.colorPrimary);
+        zigZagLayout.setViewMargin(50);
+        zigZagLayout.setLineStrokeWidth(10);
+        zigZagLayout.setLineColor(Color.parseColor("#007C38"));
 
-        createButton("TEST", zigZagLayout);
-        createButton("TESTE2", zigZagLayout);
-        createButton("TEST", zigZagLayout);
-        createButton("TESTE2", zigZagLayout);
-        createButton("TEST", zigZagLayout);
-        createButton("TESTE2", zigZagLayout);
+        createButton("1", zigZagLayout);
+        createButton("2", zigZagLayout);
+        createButton("3", zigZagLayout);
+        createButton("4", zigZagLayout);
+        createButton("5", zigZagLayout);
+        createButton("6", zigZagLayout);
+        createButton("7", zigZagLayout);
+        createButton("8", zigZagLayout);
+        createButton("8", zigZagLayout);
+        createButton("6", zigZagLayout);
+        createButton("7", zigZagLayout);
+        createButton("8", zigZagLayout);
+        createButton("8", zigZagLayout);
 
 
         //notificationID = (int) System.currentTimeMillis();
@@ -73,11 +85,12 @@ public class MainActivity extends AppCompatActivity
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.logo)  // TODO: Replace for wireframe logo
+                        .setSmallIcon(R.mipmap.ic_logo_wireframe)
+                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                         .setContentTitle("Orchid #1 needs water!")
                         .setContentText("Don't forget to do so ASAP!")
                         .setAutoCancel(false)
-                        .setOngoing(false)  // TODO: Set to true
+                        .setOngoing(true)  // TODO: Set to true
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setCategory(NotificationCompat.CATEGORY_EVENT)
                         .setDefaults(NotificationCompat.DEFAULT_ALL);
@@ -110,16 +123,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
@@ -128,14 +137,19 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            // TODO: home fragment
         } else if (id == R.id.nav_map) {
-
+            // TODO: map fragment
         } else if (id == R.id.nav_profile) {
+            startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
+        } else if (id == R.id.nav_about) {
+            startActivity(new Intent(MainActivity.this, AboutActivity.class));
+        } else if (id == R.id.nav_logout) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            this.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -144,9 +158,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void createButton(String text, ZigZagLayout zig) {
-        Button btn = new Button(this);
-        btn.setText(text);
-        btn.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-        zig.addView(btn);
+        FloatingActionButton _fab = new FloatingActionButton(this);
+        _fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_google_sign));
+        _fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#007C38")));
+        _fab.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+        zig.addView(_fab);
     }
 }

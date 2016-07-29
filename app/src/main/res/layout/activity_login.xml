@@ -10,10 +10,12 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"/>
     <LinearLayout
+        android:id="@+id/login_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerVertical="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -82,7 +84,7 @@
                 android:text="@string/btnSubmit"
                 android:id="@+id/submit"
                 android:theme="@style/Theme.AppCompat"
-                android:background="@drawable/rounded_button" />
+                android:background="@drawable/ripple_effect" />
         </LinearLayout>
     </LinearLayout>
 

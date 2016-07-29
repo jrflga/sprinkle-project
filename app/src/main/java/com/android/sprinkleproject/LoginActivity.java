@@ -3,6 +3,8 @@ package com.android.sprinkleproject;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -29,13 +31,13 @@ public class LoginActivity extends Activity {
         Typeface mTypeface = Typeface.createFromAsset(getAssets(), "fonts/WalterTurncoat.ttf");
         appName.setTypeface(mTypeface);
 
-        Button btnSubmit = (Button) findViewById(R.id.submit);
+        final Button btnSubmit = (Button) findViewById(R.id.submit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                btnSubmit.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
             }
         });
     }
-
 }
