@@ -8,9 +8,9 @@
     <string name="profile_desc">Profile image</string>
     <string name="profile_email">roberto.alves@gmail.com</string>
     <string name="logoDesc">Logo</string>
-    <string name="btnSubmit">Logar</string>
+    <string name="btnSubmit">Login</string>
     <string name="email">Email</string>
-    <string name="edittext_password">Senha</string>
+    <string name="edittext_password">Password</string>
     <string name="btnGoogle">Google</string>
     <string name="btnFacebook">Facebook</string>
 
