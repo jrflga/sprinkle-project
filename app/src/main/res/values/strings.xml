@@ -13,4 +13,10 @@
     <string name="edittext_password">Senha</string>
     <string name="btnGoogle">Google</string>
     <string name="btnFacebook">Facebook</string>
+
+    <string name="menu_logout">Log out</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_profile">Perfil</string>
+    <string name="menu_map">Mapa</string>
+    <string name="menu_home">Home</string>
 </resources>

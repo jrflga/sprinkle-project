@@ -3,18 +3,19 @@
 
     <group android:id="@+id/drawer_menu_top" android:checkableBehavior="single">
         <item android:id="@+id/nav_home" android:icon="@drawable/ic_home"
-            android:title="Início" />
+            android:title="@string/menu_home" />
         <item android:id="@+id/nav_map" android:icon="@drawable/ic_map"
-            android:title="Mapa" />
-        <item android:id="@+id/nav_profile" android:icon="@drawable/ic_account"
-            android:title="Perfil" />
+            android:title="@string/menu_map" />
     </group>
-
+    <group android:id="@+id/drawer_menu_middle" android:checkableBehavior="none">
+        <item android:id="@+id/nav_profile" android:icon="@drawable/ic_account"
+            android:title="@string/menu_profile" />
+    </group>
     <group android:id="@+id/drawer_menu_bottom" android:checkableBehavior="none">
-            <item android:id="@+id/nav_about" android:icon="@drawable/ic_about"
-                android:title="Sobre" />
-            <item android:id="@+id/nav_logout" android:icon="@drawable/ic_logout"
-                android:title="Sair" />
-        </group>
+        <item android:id="@+id/nav_about" android:icon="@drawable/ic_about"
+            android:title="@string/menu_about" />
+        <item android:id="@+id/nav_logout" android:icon="@drawable/ic_logout"
+            android:title="@string/menu_logout" />
+    </group>
 
 </menu>

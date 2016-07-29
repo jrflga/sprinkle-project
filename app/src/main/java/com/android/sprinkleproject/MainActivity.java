@@ -1,9 +1,13 @@
 package com.android.sprinkleproject;
 
-import android.graphics.Color;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +24,8 @@ import com.android.sprinkleproject.utils.ZigZagLayout;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    int notificationID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +46,15 @@ public class MainActivity extends AppCompatActivity
         createButton("TESTE2", zigZagLayout);
 
 
+        //notificationID = (int) System.currentTimeMillis();
+        notificationID = 1;
+        addNotification();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                removeNotification();
             }
         });
 
@@ -57,6 +66,36 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void addNotification() {
+        Intent notificationIntent = new Intent(MainActivity.this, MainActivity.class);
+
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.logo)  // TODO: Replace for wireframe logo
+                        .setContentTitle("Orchid #1 needs water!")
+                        .setContentText("Don't forget to do so ASAP!")
+                        .setAutoCancel(false)
+                        .setOngoing(false)  // TODO: Set to true
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+                        .setDefaults(NotificationCompat.DEFAULT_ALL);
+
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(notificationID, builder.build());
+
+        Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(100);
+    }
+
+    private void removeNotification() {
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.cancel(notificationID);
     }
 
     @Override
