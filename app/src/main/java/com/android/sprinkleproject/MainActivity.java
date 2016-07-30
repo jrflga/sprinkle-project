@@ -52,19 +52,19 @@ public class MainActivity extends AppCompatActivity
         createButton("6", zigZagLayout);
         createButton("7", zigZagLayout);
         createButton("8", zigZagLayout);
-        createButton("8", zigZagLayout);
-        createButton("6", zigZagLayout);
-        createButton("7", zigZagLayout);
-        createButton("8", zigZagLayout);
-        createButton("8", zigZagLayout);
+        createButton("9", zigZagLayout);
+        createButton("10", zigZagLayout);
+        createButton("11", zigZagLayout);
+        createButton("12", zigZagLayout);
+        createButton("13", zigZagLayout);
 
         scrollview = (ScrollView) findViewById(R.id.mainScrollView);
-        scrollview.post(new Runnable() {
+        scrollview.postDelayed(new Runnable() {
             @Override
             public void run() {
                 scrollview.fullScroll(View.FOCUS_DOWN);
             }
-        });
+        }, 200);
 
 
         //notificationID = (int) System.currentTimeMillis();
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity
                         .setContentTitle("Orchid #1 needs water!")
                         .setContentText("Don't forget to do so ASAP!")
                         .setAutoCancel(false)
-                        .setOngoing(true)  // TODO: Set to true
+                        .setOngoing(false)  // TODO: Set to true
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setCategory(NotificationCompat.CATEGORY_EVENT)
                         .setDefaults(NotificationCompat.DEFAULT_ALL);
@@ -154,6 +154,8 @@ public class MainActivity extends AppCompatActivity
             // TODO: map fragment
         } else if (id == R.id.nav_profile) {
             startActivity(new Intent(MainActivity.this, UserProfileActivity.class));
+        } else if (id == R.id.nav_settings) {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
         } else if (id == R.id.nav_logout) {

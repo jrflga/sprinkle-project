@@ -56,6 +56,7 @@ public class LoginActivity extends Activity {
                                                                         R.anim.trans_left_out)
                                                                         .toBundle();
                 startActivity(slideActivity, bundleAnim);
+                LoginActivity.this.finish();
             }
         });
     }

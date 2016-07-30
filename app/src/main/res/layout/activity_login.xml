@@ -120,7 +120,7 @@
                 android:drawableLeft="@drawable/ic_google_sign"
                 android:paddingLeft="10dp"
                 android:theme="@style/Theme.AppCompat"
-                android:background="@color/google_red_color"/>
+                android:background="@drawable/ripple_google"/>
 
             <Button android:id="@+id/btnFacebook"
                 android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                 android:drawableLeft="@drawable/ic_facebook_sign"
                 android:paddingLeft="10dp"
                 android:theme="@style/Theme.AppCompat"
-                android:background="@color/facebook_color"/>
+                android:background="@drawable/ripple_fb"/>
         </LinearLayout>
 
     <LinearLayout
