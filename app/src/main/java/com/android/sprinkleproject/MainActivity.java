@@ -29,6 +29,7 @@ import com.android.sprinkleproject.utils.ZigZagLayout;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ScrollView scrollview;
     int notificationID;
 
     @Override
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
 
         ZigZagLayout zigZagLayout = (ZigZagLayout) findViewById(R.id.zzl);
         zigZagLayout.setViewMargin(50);
-        zigZagLayout.setLineStrokeWidth(10);
+        zigZagLayout.setLineStrokeWidth(15);
         zigZagLayout.setLineColor(Color.parseColor("#007C38"));
 
         createButton("1", zigZagLayout);
@@ -57,10 +58,18 @@ public class MainActivity extends AppCompatActivity
         createButton("8", zigZagLayout);
         createButton("8", zigZagLayout);
 
+        scrollview = (ScrollView) findViewById(R.id.mainScrollView);
+        scrollview.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollview.fullScroll(View.FOCUS_DOWN);
+            }
+        });
+
 
         //notificationID = (int) System.currentTimeMillis();
         notificationID = 1;
-        addNotification();
+        //addNotification();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -159,8 +168,8 @@ public class MainActivity extends AppCompatActivity
 
     public void createButton(String text, ZigZagLayout zig) {
         FloatingActionButton _fab = new FloatingActionButton(this);
-        _fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_google_sign));
-        _fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#007C38")));
+        _fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_leaf));
+        _fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#009945")));
         _fab.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
         zig.addView(_fab);
     }

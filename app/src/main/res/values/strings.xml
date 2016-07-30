@@ -9,6 +9,7 @@
     <string name="profile_email">roberto.alves@gmail.com</string>
     <string name="logoDesc">Logo</string>
     <string name="btnSubmit">Login</string>
+    <string name="btnRegister">Register</string>
     <string name="email">Email</string>
     <string name="edittext_password">Password</string>
     <string name="btnGoogle">Google</string>

@@ -70,7 +70,7 @@ public class ZigZagLayout extends RelativeLayout {
             }
             child.setId(childCount + 1);
         } else {
-            layoutParams.leftMargin = mRootViewLeftMargin ;
+            layoutParams.leftMargin = mRootViewLeftMargin;
             child.setId(1);
         }
 

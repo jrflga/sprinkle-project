@@ -8,7 +8,8 @@
     <com.android.sprinkleproject.utils.IntroVideoSurfaceView
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:background="@drawable/background_darkenfy"/>
     <LinearLayout
         android:id="@+id/login_content"
         android:layout_width="wrap_content"
@@ -78,17 +79,34 @@
                 android:layout_gravity="center"
                 android:textColor="@android:color/white"/>
 
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/btnSubmit"
-                android:id="@+id/submit"
-                android:theme="@style/Theme.AppCompat"
-                android:background="@drawable/ripple_effect" />
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/btnSubmit"
+                    android:id="@+id/submit"
+                    android:theme="@style/Theme.AppCompat"
+                    android:background="@drawable/ripple_effect" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/btnRegister"
+                    android:id="@+id/register"
+                    android:theme="@style/Theme.AppCompat"
+                    android:background="@drawable/ripple_effect" />
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/social_btns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -114,5 +132,28 @@
                 android:theme="@style/Theme.AppCompat"
                 android:background="@color/facebook_color"/>
         </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/logging_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.AppCompat"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logging in..."
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:layout_alignParentBottom="@id/logging_bar"/>
+    </LinearLayout>
 
 </RelativeLayout>
