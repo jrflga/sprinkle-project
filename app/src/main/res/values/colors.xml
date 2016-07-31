@@ -8,4 +8,6 @@
     <color name="facebook_color">#3b5998</color>
     <color name="google_red_color">#DD4B39</color>
     <color name="circle_leaf_color">#009945</color>
+    <color name="rounded_water_button">#40a4df</color>
+    <color name="rounded_died_button">#e74c3c</color>
 </resources>

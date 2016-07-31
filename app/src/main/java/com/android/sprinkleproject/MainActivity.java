@@ -12,6 +12,7 @@ import android.os.Vibrator;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,10 +22,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
-import com.android.sprinkleproject.utils.ZigZagLayout;
+import com.android.sprinkleproject.Utils.ZigZagLayout;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -174,5 +176,13 @@ public class MainActivity extends AppCompatActivity
         _fab.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#009945")));
         _fab.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
         zig.addView(_fab);
+        final OvershootInterpolator interpolator = new OvershootInterpolator();
+        ViewCompat.animate(_fab).rotation(180f).withLayer().setDuration(0).setInterpolator(interpolator).start();
+        _fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PlantProfileActivity.class));
+            }
+        });
     }
 }

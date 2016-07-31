@@ -1,4 +1,4 @@
-package com.android.sprinkleproject.utils;
+package com.android.sprinkleproject.Utils;
 
         import android.content.Context;
         import android.graphics.Canvas;
@@ -12,8 +12,8 @@ package com.android.sprinkleproject.utils;
 
 public class ZigZagLayout extends RelativeLayout {
 
-    private int mViewMargin = 20;
-    private int mRootViewLeftMargin = 200;
+    private int mViewMargin = 100;
+    private int mRootViewLeftMargin = 0;
     private boolean shouldDrawLines = true;
 
     private Paint mPaintConnectorLine;
