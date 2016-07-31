@@ -13,7 +13,8 @@ Coming soon
 
 ## Screenshots
 
-![s1](http://i.imgur.com/ULQDSHj.jpg)
+![s1](http://i.imgur.com/qkTYyYU.png)
+![s2](http://i.imgur.com/jLd61Bn.png)
 
 ## Commit guide
 [:koala: João Ricardo](http://github.com/jrflga)
