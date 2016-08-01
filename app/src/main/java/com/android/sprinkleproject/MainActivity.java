@@ -64,14 +64,14 @@ public class MainActivity extends AppCompatActivity
         scrollview.postDelayed(new Runnable() {
             @Override
             public void run() {
-                scrollview.fullScroll(View.FOCUS_DOWN);
+                scrollview.fullScroll(View.FOCUS_UP);
             }
         }, 200);
 
 
         //notificationID = (int) System.currentTimeMillis();
         notificationID = 1;
-        //addNotification();
+        addNotification();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

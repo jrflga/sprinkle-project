@@ -16,7 +16,7 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@android:color/transparent">
 
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Regada anterior"
+                android:text="Última regada"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
@@ -120,7 +120,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Flower"
+                    android:text="Flor"
                     android:textSize="14sp"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"/>
@@ -197,9 +197,11 @@
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
                 android:layout_marginTop="2dp"/>
+
             <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/plant_chart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginTop="20dp">
 
             </com.github.mikephil.charting.charts.LineChart>
@@ -209,6 +211,7 @@
     <com.mikhaellopez.circularimageview.CircularImageView
         android:layout_height="150dp"
         android:layout_width="150dp"
+        android:id="@+id/plant_profile"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|center_horizontal"
         android:src="@drawable/plant_pic"
@@ -216,6 +219,8 @@
         android:clickable="true"
         app:civ_shadow="true"
         app:civ_shadow_color="#ccc"
-        app:civ_shadow_radius="10"/>
+        app:civ_shadow_radius="10"
+        app:civ_border="true"
+        app:civ_border_width="4dp"/>
 
 </android.support.design.widget.CoordinatorLayout>

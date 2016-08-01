@@ -12,7 +12,7 @@
         android:id="@+id/mainScrollView"
         android:rotation="180"
         android:scrollbars="none"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="56dp">
 
     <com.android.sprinkleproject.Utils.ZigZagLayout
         android:layout_width="match_parent"

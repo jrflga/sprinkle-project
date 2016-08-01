@@ -48,10 +48,16 @@
         </activity>
         <activity
             android:name=".UserProfileActivity"
-            android:label="@string/userprofile">
+            android:label="@string/userprofile"
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".AboutActivity"
-            android:label="@string/about">
+            android:label="@string/about"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".SettingsActivity"
+            android:label="@string/settings"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

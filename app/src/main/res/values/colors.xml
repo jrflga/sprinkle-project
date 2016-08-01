@@ -10,4 +10,5 @@
     <color name="circle_leaf_color">#009945</color>
     <color name="rounded_water_button">#40a4df</color>
     <color name="rounded_died_button">#e74c3c</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
