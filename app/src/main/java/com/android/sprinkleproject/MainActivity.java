@@ -1,5 +1,6 @@
 package com.android.sprinkleproject;
 
+import android.app.ActivityOptions;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,62 +10,71 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
-import com.android.sprinkleproject.Utils.ZigZagLayout;
+import com.android.sprinkleproject.utils.ZigZagLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ScrollView scrollview;
+    private static final String TAG = "Home";
+
+    private FloatingActionButton  fab;
+    private ScrollView            mScrollview;
+    private ZigZagLayout          mZigZagLayout;
+    private Toolbar               mToolbar;
+    private DrawerLayout          mDrawer;
+    private NavigationView        mNavigation;
+    private ActionBarDrawerToggle toggle;
+
     int notificationID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        ZigZagLayout zigZagLayout = (ZigZagLayout) findViewById(R.id.zzl);
-        zigZagLayout.setViewMargin(50);
-        zigZagLayout.setLineStrokeWidth(15);
-        zigZagLayout.setLineColor(Color.parseColor("#007C38"));
+        mToolbar =      (Toolbar) findViewById(R.id.toolbar);
+        mZigZagLayout = (ZigZagLayout) findViewById(R.id.zzl);
+        mScrollview =   (ScrollView) findViewById(R.id.mainScrollView);
+        mDrawer =       (DrawerLayout) findViewById(R.id.drawer_layout);
+        fab =           (FloatingActionButton) findViewById(R.id.fab);
+        mNavigation =   (NavigationView) findViewById(R.id.nav_view);
 
-        createButton("1", zigZagLayout);
-        createButton("2", zigZagLayout);
-        createButton("3", zigZagLayout);
-        createButton("4", zigZagLayout);
-        createButton("5", zigZagLayout);
-        createButton("6", zigZagLayout);
-        createButton("7", zigZagLayout);
-        createButton("8", zigZagLayout);
-        createButton("9", zigZagLayout);
-        createButton("10", zigZagLayout);
-        createButton("11", zigZagLayout);
-        createButton("12", zigZagLayout);
-        createButton("13", zigZagLayout);
+        setSupportActionBar(mToolbar);
 
-        scrollview = (ScrollView) findViewById(R.id.mainScrollView);
-        scrollview.postDelayed(new Runnable() {
+        mZigZagLayout.setViewMargin(50);
+        mZigZagLayout.setLineStrokeWidth(15);
+        mZigZagLayout.setLineColor(Color.parseColor("#007C38"));
+
+        for(int i = 0; i < 13; i++) {
+            createButton("ID: " + i, mZigZagLayout);
+        }
+
+        mScrollview.postDelayed(new Runnable() {
             @Override
             public void run() {
-                scrollview.fullScroll(View.FOCUS_UP);
+                mScrollview.fullScroll(View.FOCUS_UP);
             }
         }, 200);
 
@@ -73,7 +83,6 @@ public class MainActivity extends AppCompatActivity
         notificationID = 1;
         addNotification();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,14 +90,13 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        toggle = new ActionBarDrawerToggle(
+                this, mDrawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        assert mNavigation != null;
+        mNavigation.setNavigationItemSelectedListener(this);
     }
 
     private void addNotification() {
@@ -116,7 +124,6 @@ public class MainActivity extends AppCompatActivity
         Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(100);
     }
-
     private void removeNotification() {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.cancel(notificationID);
@@ -141,7 +148,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -161,13 +167,18 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             startActivity(new Intent(MainActivity.this, AboutActivity.class));
         } else if (id == R.id.nav_logout) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            signOut();
             this.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void signOut() {
+        LoginActivity.mAuth.signOut();
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 
     public void createButton(String text, ZigZagLayout zig) {

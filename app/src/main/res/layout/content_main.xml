@@ -14,13 +14,13 @@
         android:scrollbars="none"
         android:layout_marginTop="56dp">
 
-    <com.android.sprinkleproject.Utils.ZigZagLayout
+    <com.android.sprinkleproject.utils.ZigZagLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/zzl"
         android:layout_gravity="center_horizontal">
 
-    </com.android.sprinkleproject.Utils.ZigZagLayout>
+    </com.android.sprinkleproject.utils.ZigZagLayout>
     </ScrollView>
 
 </LinearLayout>

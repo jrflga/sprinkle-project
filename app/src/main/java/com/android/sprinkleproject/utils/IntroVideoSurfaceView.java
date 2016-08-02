@@ -1,4 +1,4 @@
-package com.android.sprinkleproject.Utils;
+package com.android.sprinkleproject.utils;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -25,6 +25,15 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:design:23.4.0'
+
+    //Circular Image View
     compile 'com.mikhaellopez:circularimageview:3.0.2'
+    //MPAndroidChart (Chart Library)
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
+    //Firebase Authentication
+    compile 'com.google.firebase:firebase-auth:9.4.0'
+    //Google Sign In SDK
+    compile 'com.google.android.gms:play-services-auth:9.4.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

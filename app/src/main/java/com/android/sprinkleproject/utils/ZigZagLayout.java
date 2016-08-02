@@ -1,4 +1,4 @@
-package com.android.sprinkleproject.Utils;
+package com.android.sprinkleproject.utils;
 
         import android.content.Context;
         import android.graphics.Canvas;
