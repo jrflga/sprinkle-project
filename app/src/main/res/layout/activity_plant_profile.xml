@@ -41,17 +41,18 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <Button
                     android:layout_width="0dp"
@@ -212,8 +213,8 @@
         android:layout_height="150dp"
         android:layout_width="150dp"
         android:id="@+id/plant_profile"
-        app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="bottom|center_horizontal"
+        app:layout_anchor="@id/content"
+        app:layout_anchorGravity="top|center_horizontal"
         android:src="@drawable/plant_pic"
         android:layout_margin="@dimen/fab_margin"
         android:clickable="true"

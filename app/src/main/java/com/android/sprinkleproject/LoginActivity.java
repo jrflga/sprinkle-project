@@ -36,6 +36,7 @@ public class LoginActivity extends Activity {
     private LinearLayout loginContent;
     private LinearLayout socialButtons;
     private TextView     appName;
+    private TextView     loggingText;
     private EditText     mEmailField;
     private EditText     mPasswordField;
 
@@ -50,6 +51,7 @@ public class LoginActivity extends Activity {
         loginContent =   (LinearLayout) findViewById(R.id.login_content);
         socialButtons =  (LinearLayout) findViewById(R.id.social_btns);
         appName =        (TextView) findViewById(R.id.appName);
+        loggingText =    (TextView) findViewById(R.id.logging_text);
         mEmailField =    (EditText) findViewById(R.id.emailLabel);
         mPasswordField = (EditText) findViewById(R.id.passwordLabel);
 
@@ -106,6 +108,10 @@ public class LoginActivity extends Activity {
         }
 
         //showProgressDialog();
+        loginContent.setVisibility(View.GONE);
+        socialButtons.setVisibility(View.GONE);
+        loggingBar.setVisibility(View.VISIBLE);
+        loggingText.setText(R.string.registering_action);
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -114,7 +120,10 @@ public class LoginActivity extends Activity {
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
                         if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, R.string.auth_failed,
+                            loginContent.setVisibility(View.VISIBLE);
+                            socialButtons.setVisibility(View.VISIBLE);
+                            loggingBar.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this, R.string.regis_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
 
@@ -130,6 +139,10 @@ public class LoginActivity extends Activity {
         }
 
         //showProgressDialog();
+        loginContent.setVisibility(View.GONE);
+        socialButtons.setVisibility(View.GONE);
+        loggingBar.setVisibility(View.VISIBLE);
+        loggingText.setText(R.string.logging_action);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -144,7 +157,11 @@ public class LoginActivity extends Activity {
                         }
 
                         if (!task.isSuccessful()) {
-                            // Failed to login
+                            loginContent.setVisibility(View.VISIBLE);
+                            socialButtons.setVisibility(View.VISIBLE);
+                            loggingBar.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this, R.string.auth_failed,
+                                    Toast.LENGTH_SHORT).show();
                         }
                         //hideProgressDialog();
                     }
@@ -181,10 +198,6 @@ public class LoginActivity extends Activity {
     private void updateUI(FirebaseUser user) {
         //hideProgressDialog();
         if (user != null) {
-            loginContent.setVisibility(View.GONE);
-            socialButtons.setVisibility(View.GONE);
-            loggingBar.setVisibility(View.VISIBLE);
-
             Intent slideActivity = new Intent(LoginActivity.this, MainActivity.class);
             Bundle bundleAnim = ActivityOptions.makeCustomAnimation(getApplicationContext(),
                     R.anim.trans_left_in,

@@ -28,8 +28,9 @@ dependencies {
 
     //Circular Image View
     compile 'com.mikhaellopez:circularimageview:3.0.2'
-    //MPAndroidChart (Chart Library)
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
+    //Chart Library
+    compile 'com.github.blackfizz:eazegraph:1.2.5l@aar'
+    compile 'com.nineoldandroids:library:2.4.0'
     //Firebase Authentication
     compile 'com.google.firebase:firebase-auth:9.4.0'
     //Google Sign In SDK

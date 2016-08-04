@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
         mZigZagLayout.setLineStrokeWidth(15);
         mZigZagLayout.setLineColor(Color.parseColor("#007C38"));
 
-        for(int i = 0; i < 13; i++) {
+        for(int i = 0; i < 2; i++) {
             createButton("ID: " + i, mZigZagLayout);
         }
 
@@ -81,12 +81,13 @@ public class MainActivity extends AppCompatActivity
 
         //notificationID = (int) System.currentTimeMillis();
         notificationID = 1;
-        addNotification();
+        //addNotification();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 removeNotification();
+                createButton("ID: ", mZigZagLayout);
             }
         });
 

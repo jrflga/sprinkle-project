@@ -148,9 +148,10 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"/>
         <TextView
+            android:id="@+id/logging_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logging in..."
+            android:text="@string/logging_action"
             android:textSize="14sp"
             android:textColor="@android:color/white"
             android:layout_alignParentBottom="@id/logging_bar"/>

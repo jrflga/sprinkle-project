@@ -29,4 +29,7 @@
     <string name="title_activity_settings">Configurações</string>
 
     <string name="auth_failed">Falha na autenticação</string>
+    <string name="regis_failed">Falha ao registrar</string>
+    <string name="logging_action">Conectando...</string>
+    <string name="registering_action">Registrando...</string>
 </resources>

@@ -7,7 +7,10 @@ package com.android.sprinkleproject.utils;
         import android.util.AttributeSet;
         import android.view.Gravity;
         import android.view.View;
+        import android.view.ViewGroup;
         import android.widget.RelativeLayout;
+
+        import java.util.Random;
 
 
 public class ZigZagLayout extends RelativeLayout {
