@@ -17,18 +17,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+//import com.google.android.gms.tasks.OnCompleteListener;
+//import com.google.android.gms.tasks.Task;
+//import com.google.firebase.auth.AuthResult;
+//import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends Activity {
 
     private static final String TAG = "Login";
 
-    public static FirebaseAuth mAuth;
-    public FirebaseAuth.AuthStateListener mAuthListener;
+    //public static FirebaseAuth mAuth;
+    //public FirebaseAuth.AuthStateListener mAuthListener;
 
     private Button       mSubmit;
     private Button       mRegister;
@@ -55,9 +55,9 @@ public class LoginActivity extends Activity {
         mEmailField =    (EditText) findViewById(R.id.emailLabel);
         mPasswordField = (EditText) findViewById(R.id.passwordLabel);
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+       /* mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -207,7 +207,7 @@ public class LoginActivity extends Activity {
             LoginActivity.this.finish();
         } else {
             //USER NOT LOGGED
-        }
+        }*/
     }
 
 }

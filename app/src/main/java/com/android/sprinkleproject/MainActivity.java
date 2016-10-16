@@ -1,19 +1,11 @@
 package com.android.sprinkleproject;
 
-import android.app.ActivityOptions;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Vibrator;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
@@ -21,18 +13,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
-
+import com.android.sprinkleproject.utils.MyService;
 import com.android.sprinkleproject.utils.ZigZagLayout;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -46,8 +34,6 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout          mDrawer;
     private NavigationView        mNavigation;
     private ActionBarDrawerToggle toggle;
-
-    int notificationID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +65,11 @@ public class MainActivity extends AppCompatActivity
         }, 200);
 
 
-        //notificationID = (int) System.currentTimeMillis();
-        notificationID = 1;
-        //addNotification();
+        addNotification();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                removeNotification();
                 createButton("ID: ", mZigZagLayout);
             }
         });
@@ -101,33 +84,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void addNotification() {
-        Intent notificationIntent = new Intent(MainActivity.this, MainActivity.class);
 
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_logo_wireframe)
-                        .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                        .setContentTitle("Orchid #1 needs water!")
-                        .setContentText("Don't forget to do so ASAP!")
-                        .setAutoCancel(false)
-                        .setOngoing(false)  // TODO: Set to true
-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setCategory(NotificationCompat.CATEGORY_EVENT)
-                        .setDefaults(NotificationCompat.DEFAULT_ALL);
-
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(contentIntent);
-
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(notificationID, builder.build());
-
-        Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(100);
-    }
-    private void removeNotification() {
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.cancel(notificationID);
+        startService(new Intent(this, MyService.class));
     }
 
     @Override
@@ -178,7 +136,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void signOut() {
-        LoginActivity.mAuth.signOut();
+        //LoginActivity.mAuth.signOut();
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 
