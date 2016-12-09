@@ -19,7 +19,6 @@ import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import com.android.sprinkleproject.utils.MyService;
 import com.android.sprinkleproject.utils.ZigZagLayout;
 
 public class MainActivity extends AppCompatActivity
@@ -64,9 +63,6 @@ public class MainActivity extends AppCompatActivity
             }
         }, 200);
 
-
-        addNotification();
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,11 +77,6 @@ public class MainActivity extends AppCompatActivity
 
         assert mNavigation != null;
         mNavigation.setNavigationItemSelectedListener(this);
-    }
-
-    private void addNotification() {
-
-        startService(new Intent(this, MyService.class));
     }
 
     @Override
@@ -136,7 +127,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void signOut() {
-        //LoginActivity.mAuth.signOut();
+        LoginActivity.mAuth.signOut();
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 
